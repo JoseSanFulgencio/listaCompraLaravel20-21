@@ -8,7 +8,7 @@ class ProductoController extends Controller
 {
 	public function getIndex(){
 	
-	return redirect()->action('ProductoController@getIndex');
+	return view ('productos.index', array('arrayProductos' => $this->arrayProductos));
 	}
 
 	public function getShow($id){
