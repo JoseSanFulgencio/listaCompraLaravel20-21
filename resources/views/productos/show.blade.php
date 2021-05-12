@@ -6,8 +6,11 @@
 
 	    <div class="col-sm-4">
 
-	        <img src="https://picsum.photos/200/300/?random" style="height:200px"/>
+	    	<a {{href="url('/views/productos/show' . $producto->id)}}">
 
+	        	<img src="https://picsum.photos/200/300/?random" style="height:200px"/>
+
+	        </a>
 	    </div>
 	    <div class="col-sm-8">
 
@@ -15,5 +18,5 @@
 
 	    </div>
 	</div>
-	
+
 @stop
