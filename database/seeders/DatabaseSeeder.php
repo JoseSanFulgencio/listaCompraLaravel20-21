@@ -15,23 +15,42 @@ class DatabaseSeeder extends Seeder
 	{
   self::seedProductos();
   $this->command->info('Tabla productos inicializada con datos!');
+  self::seedUsers();
+  $this->command->info('Tabla usuarios inicializada con datos!');
 	}
 
-	private static function seedProductos(){
+	public function seedUsers(Request $request) {
+    $user1 = new User;
+    $user->name = 'Jose';
+    $user->email = '8686470@alu.murciaeduca.es';
+    $user->password = bcrypt('contraseña1');
+    $user->nombre = 'JoseNick';
+    $user->apellidos = 'San Fulgencio Pérez';
+    $user->save();
+
+    $user2 = new User;
+    $user->name = 'Juan';
+    $user->email = 'juan@alu.murciaeduca.es';
+    $user->password = bcrypt('contraseña2');
+    $user->nombre = 'JuanNick';
+    $user->apellidos = 'San Fulgencio Pérez';
+    $user->save();
+
+}
+
+private static function seedProductos(){
 
         Producto::truncate();
 
         foreach( self::$arrayProductos as $producto ) {
-
             $p = new Producto;
             $p->nombre = $producto[0];
             $p->categoria = $producto[1];
             $p->save();
-            
         }
     }
 
-	$arrayProductos = array(
+	private static $arrayProductos = array(
 	
 	array('Aceite','Aceites y grasas'),
 	array('Aceite de oliva','Aceites y grasas'),

@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@getHome');
+Route::get('/', 'App/Http/Controllers/HomeController@getHome');
 
-Route::get('/home/login', function () {
+/*Route::get('/home/login', function () {
     return view ('auth.login');
-});
+});*/
 
-Route::get('/home/logout', function () {
+/*Route::get('/home/logout', function () {
     return view ('Logout usuario');
-});
+});*/
 
 Route::get('/home/productos', 'ProductoController@getIndex');
 
@@ -31,3 +31,7 @@ Route::get('productos/create', 'ProductoController@getCreate' );
 
 Route::get('productos/edit/{id}', 'ProductoController@getEdit' );
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
